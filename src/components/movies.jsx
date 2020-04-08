@@ -28,6 +28,9 @@ class Movies extends Component {
   render() {
     const { pageSize, currentPage } = this.state;
     const { length: count } = this.state.movies;
+
+    if (count === 0) return <p>there are no movies in the db</p>;
+
     return (
       <React.Fragment>
         <table className="table">
