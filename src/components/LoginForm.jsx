@@ -3,6 +3,7 @@ import React, { Component } from "react";
 export class LoginForm extends Component {
   state = {
     account: { username: "", password: "" }
+    // error: {}
   };
 
   handleSubmit = e => {

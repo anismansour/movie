@@ -42,6 +42,11 @@ export class NavBar extends Component {
                   Login
                 </NavLink>
               </li>
+              <li className="nav-item">
+                <NavLink className="nav-link" to="/register">
+                  Register
+                </NavLink>
+              </li>
               <h6>front end website with react basics</h6>
             </ul>
           </div>
