@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { MDBContainer, MDBRow, MDBCol, MDBBtn, MDBInput } from "mdbreact";
-import Joi from "joi";
+import Joi from "joi-browser";
 
 export class RegisterForm extends Component {
   state = {
@@ -22,8 +22,28 @@ export class RegisterForm extends Component {
       .label("name")
   };
 
+  //   validate = () => {
+  //     const result = Joi.validate(this.state.data);
+  //     console.log(result);
+  //   };
+
+  validate = () => {
+    const { data } = this.state;
+    const errors = {};
+    if (data.name.trim() === "") errors.name = "name is required";
+    if (data.password.trim() === "") errors.password = "password is required";
+    if (data.email.trim() === "") errors.email = "email is required";
+
+    return Object.keys(errors).length === 0 ? null : errors;
+  };
+
   HandleSubmit = e => {
     e.preventDefault();
+    const errors = this.validate();
+    // console.log(errors);
+    this.setState({ errors: errors || {} });
+    //added errors ||{} otherwise errors become null
+    if (errors) return;
     console.log("register submit working");
   };
   handleChange = e => {
@@ -54,6 +74,11 @@ export class RegisterForm extends Component {
                     success="right"
                     name="name"
                   />
+                  {this.state.errors.name && (
+                    <div className="alert alert-danger">
+                      {this.state.errors.name}
+                    </div>
+                  )}
                   <MDBInput
                     value={this.state.data.email}
                     onChange={this.handleChange}
@@ -66,6 +91,11 @@ export class RegisterForm extends Component {
                     success="right"
                     name="email"
                   />
+                  {this.state.errors.email && (
+                    <div className="alert alert-danger">
+                      {this.state.errors.email}
+                    </div>
+                  )}
 
                   <MDBInput
                     value={this.state.data.password}
@@ -78,6 +108,11 @@ export class RegisterForm extends Component {
                     name="password"
                   />
                 </div>
+                {this.state.errors.password && (
+                  <div className="alert alert-danger">
+                    {this.state.errors.password}
+                  </div>
+                )}
                 <div className="text-center">
                   <MDBBtn type="submit" className="btn btn-primary">
                     register
