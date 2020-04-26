@@ -7,25 +7,13 @@ export class AddMovie extends Component {
   state = {
     data: {
       title: "",
-      genreId: "",
+      genre: "",
       numberInStock: "",
       dailyRentalRate: ""
     },
     genres: [],
     errors: {}
   };
-
-  //   componentDidMount() {
-  //     const genres = getGenres();
-  //     this.setState({ genres });
-  //     const movieId = this.props.match.params.id;
-  //     if (movieId === "new") return;
-  //   }
-
-  //   doSubmit = () => {
-  //     saveMovie(this.state.data);
-  //     this.props.history.push("/movies");
-  //   };
 
   handleChange = e => {
     const data = { ...this.state.data };
@@ -61,14 +49,19 @@ export class AddMovie extends Component {
                     success="right"
                     name="title"
                   />
-                  {/* <div className="form-group">
-                    <label htmlFor="sel1">Select genre</label>
-                    <select className="form-control" id="sel1">
-                      <option>Action </option>
-                      <option>Comedy</option>
-                      <option>Thriller</option>
-                    </select>
-                  </div> */}
+                  {/* <MDBInput
+                    value={this.state.data.genre}
+                    onChange={this.handleChange}
+                    autoFocus
+                    label="Genre"
+                    group
+                    type="text"
+                    validate
+                    error="wrong"
+                    success="right"
+                    name="genre"
+                  /> */}
+
                   <MDBInput
                     value={this.state.data.numberInStock}
                     onChange={this.handleChange}
