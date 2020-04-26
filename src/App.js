@@ -9,6 +9,7 @@ import NavBar from "./components/NavBar";
 import MovieForm from "./components/MovieForm";
 import LoginForm from "./components/LoginForm";
 import RegisterForm from "./components/RegisterForm";
+import { AddMovie } from "./components/AddMovie";
 function App() {
   return (
     <React.Fragment>
@@ -17,6 +18,7 @@ function App() {
         <Switch>
           <Route path="/login" component={LoginForm} />
           <Route path="/register" component={RegisterForm} />
+          <Route path="/movies/new" component={AddMovie} />
 
           <Route path="/movies/:id" component={MovieForm} />
           <Route path="/movies" component={Movies} />
