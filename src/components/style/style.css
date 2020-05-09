@@ -1,0 +1,222 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #777;
+  padding: 5px;
+}
+
+.header {
+  height: 95vh;
+  background-image: linear-gradient(to right, #29351c7e, #0e64968e),
+    url(man.jpg);
+  background-size: cover;
+  background-position: top;
+  clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 0% 100%);
+  position: relative;
+}
+
+.logo-box {
+  position: absolute;
+  top: 80px;
+  left: 40px;
+}
+.logo1 {
+  height: 60px;
+  animation-name: moveInLeft;
+  animation-duration: 1s;
+  animation-timing-function: ease-in;
+}
+.logo2 {
+  height: 60px;
+  animation-name: moveInLeft;
+  animation-duration: 2s;
+  animation-timing-function: ease-in;
+}
+.logo3 {
+  height: 60px;
+  animation-name: moveInLeft;
+  animation-duration: 2.5s;
+  animation-timing-function: ease-in;
+}
+.logo4 {
+  height: 60px;
+  animation-name: moveInLeft;
+  animation-duration: 3s;
+  animation-timing-function: ease-in;
+}
+
+.text-box {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.heading-primary {
+  color: white;
+  text-transform: uppercase;
+  margin-bottom: 60px;
+
+  /* animation makes page shacking  backface fix the issue  */
+  backface-visibility: hidden;
+}
+
+.heading-primary-main {
+  display: block;
+  font-size: 25px;
+  font-weight: 700;
+  letter-spacing: 12px;
+
+  animation-name: moveInLeft;
+  animation-duration: 3s;
+  animation-timing-function: ease-in;
+
+  /* animation-iteration-count: 2; */
+  /* animation-delay: 2sc; */
+}
+.heading-primary-sub {
+  display: block;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 7.4px;
+  animation-name: moveInRight;
+  animation-duration: 3s;
+  animation-timing-function: ease-out;
+}
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  80% {
+    transform: translateX(20px) rotate3d(2, -1, -1, -0.2turn);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  80% {
+    transform: translateX(-70px) rotate3d(0, 1, 0.5, 3.142rad);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+@keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+@keyframes shake {
+  0% {
+    transform: translateX(40px);
+  }
+  50% {
+    transform: translateY(100px);
+  }
+  75% {
+    transform: translateY(0px);
+    transform: translateX(-40px);
+  }
+  100% {
+    transform: translateY(0px);
+    transform: translateX(40px);
+  }
+}
+
+.btn1:link,
+.btn1.visited {
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 15px 40px;
+  display: inline-block;
+  border-radius: 100px;
+  transition: all 0.2s;
+  position: relative;
+  animation-name: shake;
+  animation-delay: 7sc;
+  animation-duration: 6s;
+  animation-iteration-count: 200;
+  animation-timing-function: ease-in-out;
+  box-shadow: 0 5px 10px rgb(143, 6, 6);
+}
+
+.brick {
+  text-decoration: none;
+  padding: 15px 40px;
+  display: inline-block;
+  border-radius: 100px;
+  transition: all 0.2s;
+  position: relative;
+
+  bottom: -15a0px;
+  box-shadow: 0 5px 10px rgb(0, 0, 0);
+  background-color: red;
+}
+
+.btn1:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.9);
+  background-color: yellow;
+}
+
+.btn1:active {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0);
+}
+.btn1-white {
+  background-color: #fff;
+  color: #777;
+}
+
+.btn1::after {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  border-radius: 100px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: all 0.4sc;
+}
+
+.btn1-white::after {
+  background-color: #fff;
+}
+
+.btn1:hover::after {
+  transform: scaleX(1.4) scaleY(1.6);
+  opacity: 0;
+}
+.btn1-animated {
+  animation: moveInBottom 0.5sc ease-out 0.75s;
+  animation-fill-mode: backwards;
+}

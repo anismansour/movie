@@ -10,6 +10,7 @@ import MovieForm from "./components/MovieForm";
 import LoginForm from "./components/LoginForm";
 import RegisterForm from "./components/RegisterForm";
 import { AddMovie } from "./components/AddMovie";
+import { Welcome } from "./components/common/Welcome";
 function App() {
   return (
     <React.Fragment>
@@ -17,6 +18,8 @@ function App() {
       <main className="container">
         <Switch>
           <Route path="/login" component={LoginForm} />
+          <Route path="/welcome" component={Welcome} />
+
           <Route path="/register" component={RegisterForm} />
           <Route path="/movies/new" component={AddMovie} />
 
@@ -26,7 +29,7 @@ function App() {
           <Route path="/rentals" component={Rentals} />
 
           <Route path="/not-found" component={NotFound} />
-          <Redirect from="/" exact to="/movies" />
+          <Redirect from="/" exact to="/welcome" />
           <Redirect to="/not-found" />
         </Switch>
         {/* <Movies /> */}

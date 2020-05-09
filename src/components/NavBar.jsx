@@ -47,7 +47,6 @@ export class NavBar extends Component {
                   Register
                 </NavLink>
               </li>
-              <h6>front end website with react basics</h6>
             </ul>
           </div>
         </nav>
