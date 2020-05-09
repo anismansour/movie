@@ -17,6 +17,7 @@ function App() {
       <NavBar />
       <main className="container">
         <Switch>
+          <Redirect from="/" exact to="/welcome" />
           <Route path="/login" component={LoginForm} />
           <Route path="/welcome" component={Welcome} />
 
@@ -29,7 +30,7 @@ function App() {
           <Route path="/rentals" component={Rentals} />
 
           <Route path="/not-found" component={NotFound} />
-          <Redirect from="/" exact to="/welcome" />
+
           <Redirect to="/not-found" />
         </Switch>
         {/* <Movies /> */}
