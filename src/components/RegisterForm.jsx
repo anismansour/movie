@@ -22,10 +22,7 @@ export class RegisterForm extends Component {
       .label("name")
   };
 
-  //   validate = () => {
-  //     const result = Joi.validate(this.state.data);
-  //     console.log(result);
-  //   };
+ 
 
   validate = () => {
     const { data } = this.state;
